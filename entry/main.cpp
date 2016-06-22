@@ -90,9 +90,8 @@ DLLEXPORT int buildProcessProc(TBuildProcessRec &params)
 #ifdef MODEL
     PackageManager *manager = new PackageManager();
     sceneModel = new SceneModel(manager);
-    qInfo() << sceneModel->loadPackage("delphi");
     sceneModel->initFromCgt(params.cgt, params.sdk);
-    sceneModel->saveModel("test.txt");
+    sceneModel->saveModel("test.json");
 
     EmulateCgt::setSceneModel(sceneModel);
     params.cgt = EmulateCgt::getCgt();
