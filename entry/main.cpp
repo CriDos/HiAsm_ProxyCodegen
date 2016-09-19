@@ -25,9 +25,9 @@
 //Служебные переменные
 static QLibrary codegen;
 static SceneModel *sceneModel = nullptr;
-static TBuildPrepareProc buildPrepareProcLib;
-static TBuildProcessProc buildProcessProcLib;
-static TCheckVersionProc checkVersionProcLib;
+static TBuildPrepareProc buildPrepareProcLib = nullptr;
+static TBuildProcessProc buildProcessProcLib = nullptr;
+static TCheckVersionProc checkVersionProcLib = nullptr;
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID lpReserved)
 {
