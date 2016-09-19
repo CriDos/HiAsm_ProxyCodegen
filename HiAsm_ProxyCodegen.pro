@@ -10,10 +10,10 @@ HIASM_PACKAGES = "C:/Users/Admin/AppData/Roaming/HiAsm_AltBuild/Elements"
 DESTDIR += $$HIASM_PACKAGES/delphi
 
 #ru Подключаем SceneModel
-#DEFINES += MODEL PROXY_MODEL
+DEFINES += MODEL PROXY_MODEL
 
 #ru Подключаем PROXY_ORIGINAL
-DEFINES += PROXY_ORIGINAL
+#DEFINES += PROXY_ORIGINAL
 
 SOURCES += $$files($$PWD/"entry/*.cpp", true)
 HEADERS += $$files($$PWD/"entry/*.h", true)
