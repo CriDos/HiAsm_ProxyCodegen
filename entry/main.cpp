@@ -25,6 +25,9 @@
 //Служебные переменные
 static QLibrary codegen;
 static SceneModel *sceneModel = nullptr;
+static TBuildPrepareProc buildPrepareProcLib;
+static TBuildProcessProc buildProcessProcLib;
+static TCheckVersionProc checkVersionProcLib;
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID lpReserved)
 {
@@ -58,9 +61,9 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID lpReserved)
             qCritical("%s library is not loaded.", qUtf8Printable(nameOriginal));
 
         //ru Определение прототипов функций проксируемого кодогенератора
-        buildPrepareProcLib = reinterpret_cast<t_buildPrepareProc>(codegen.resolve("buildPrepareProc"));
-        buildProcessProcLib = reinterpret_cast<t_buildProcessProc>(codegen.resolve("buildProcessProc"));
-        checkVersionProcLib = reinterpret_cast<t_checkVersionProc>(codegen.resolve("CheckVersionProc"));
+        buildPrepareProcLib = reinterpret_cast<TBuildPrepareProc>(codegen.resolve("buildPrepareProc"));
+        buildProcessProcLib = reinterpret_cast<TBuildProcessProc>(codegen.resolve("buildProcessProc"));
+        checkVersionProcLib = reinterpret_cast<TCheckVersionProc>(codegen.resolve("CheckVersionProc"));
         break;
     }
 
